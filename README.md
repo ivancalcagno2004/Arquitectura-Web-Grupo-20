@@ -1,46 +1,24 @@
-\# Grupo 26 – Arquitectura Web 2025
+# Grupo 26 – Arquitectura Web 2025
 
 
 
-\## Participantes
+## Participantes
 
 
 
-| Nombre completo        | Mail |
+ ### Nombre completo        | Mail 
 
-|------------------------|--------------------------------------|
+- Pedro Terán            - [teranpedrofabian@gmail.com]         
 
-| Pedro Terán            | \[teranpedrofabian@gmail.com]         |
+- Rodrigo Dinelli        - [rdinellivillalba@alumnos.exa.unicen.edu.ar]         
 
-| Rodrigo Dinelli        | \[rodrigodinelli01@gmail.com]         |
+- Lionel Martínez        - [lioom975@gmail.com]                 
 
-| Lionel Martínez        | \[lioom975@gmail.com]                 |
+- Iván Andrés Calcagno   - [icalcagno@alumnos.exa.unicen.edu.ar]
 
-| Iván Andrés Calcagno   | \[icalcagno@alumnos.exa.unicen.edu.ar]|
-
-| Ulises Palazzo         | \[...]                                |
+- Ulises Palazzo         - [...]                                
 
 
-
-
-
----
-
-
-
-\## Organización del repositorio
-
-
-
-\- \*\*main\*\* → contiene únicamente este `README.md`.  
-
-\- \*\*TP1\*\* → entrega del Trabajo Práctico 1.  
-
-\- \*\*TP2\*\* → entrega del Trabajo Práctico 2.  
-
-\- \*\*TP3\*\* → entrega del Trabajo Práctico 3.  
-
-\- etc.
 
 
 
@@ -48,11 +26,30 @@
 
 
 
-\## Notas
+## Organización del repositorio
 
-\- Cada branch contiene el código correspondiente a su TP.  
 
-\- `main` sirve como referencia común del grupo con la lista de integrantes.
+- **main** → contiene únicamente este `README.md`.  
+
+- **TP1** → entrega del Trabajo Práctico 1.  
+
+- **TP2** → entrega del Trabajo Práctico 2.  
+
+- **TP3** → entrega del Trabajo Práctico 3.  
+
+- etc.
+
+
+
+---
+
+
+
+## Notas
+
+- Cada branch contiene el código correspondiente a su TP.  
+
+- `main` sirve como referencia común del grupo con la lista de integrantes.
 
 
 
