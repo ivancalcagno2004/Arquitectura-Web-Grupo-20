@@ -9,6 +9,7 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 *.idea/
+*/TP1-Arqui/.idea/
 *.iws
 *.iml
 *.ipr
