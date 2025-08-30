@@ -16,7 +16,7 @@
 
 - Iván Andrés Calcagno   - [icalcagno@alumnos.exa.unicen.edu.ar]
 
-- Ulises Palazzo         - [...]                                
+- Ulises Palazzo         - [ulipalazzoo@gmail.com]                                
 
 
 
