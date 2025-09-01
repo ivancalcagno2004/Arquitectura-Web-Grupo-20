@@ -41,3 +41,6 @@ build/
 
 MyDerbyDB/
 derby.log
+
+### Variables de entorno ###
+.env
