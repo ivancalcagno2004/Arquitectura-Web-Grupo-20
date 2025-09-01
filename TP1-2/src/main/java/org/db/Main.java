@@ -10,7 +10,7 @@ import java.sql.SQLException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+        String driver = "com.mysql.cj.jdbc.Driver";
 
         try{
             Class.forName(driver).getDeclaredConstructor().newInstance();
@@ -20,9 +20,10 @@ public class Main {
             System.exit(1);
         }
 
-        String uri = "jdbc:derby:MyDerbyDB;create=true";
+        String uri = "jdbc:mysql://localhost:3307/exampleDB";
         try{
-            Connection conn = DriverManager.getConnection(uri);
+            Connection conn = DriverManager.getConnection(uri, "root", "password");
+            conn.setAutoCommit(false);
             createTables(conn);
             addPerson(conn, 1, "Lio", 7);
             addPerson(conn, 2, "Rodri", 8);

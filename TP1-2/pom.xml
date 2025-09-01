@@ -15,18 +15,18 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.16.1.1</version>
-            <scope>org.db</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.derby/derbytools -->
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbytools</artifactId>
-            <version>10.16.1.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.derby</groupId>-->
+<!--            <artifactId>derby</artifactId>-->
+<!--            <version>10.16.1.1</version>-->
+<!--            <scope>org.db</scope>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.derby/derbytools &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.derby</groupId>-->
+<!--            <artifactId>derbytools</artifactId>-->
+<!--            <version>10.16.1.1</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>

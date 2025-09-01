@@ -5,20 +5,20 @@ import java.sql.*;
 
 public class Select {
     public static void main(String[] args) {
-        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+        String driver = "com.mysql.cj.jdbc.Driver";
 
-        try {
+        try{
             Class.forName(driver).getDeclaredConstructor().newInstance();
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-                 InvocationTargetException |
-                 NoSuchMethodException | SecurityException | ClassNotFoundException e) {
+        }catch(InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException |
+               NoSuchMethodException | SecurityException | ClassNotFoundException e){
             e.printStackTrace();
             System.exit(1);
         }
 
-        String uri = "jdbc:derby:MyDerbyDB;create=true";
-        try {
-            Connection conn = DriverManager.getConnection(uri);
+        String uri = "jdbc:mysql://localhost:3307/exampleDB";
+        try{
+            Connection conn = DriverManager.getConnection(uri, "root", "password");
+            conn.setAutoCommit(false);
             String select = "SELECT * FROM persona";
             PreparedStatement ps = conn.prepareStatement(select);
             ResultSet rs = ps.executeQuery();
