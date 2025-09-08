@@ -11,8 +11,9 @@ import org.apache.commons.csv.CSVRecord;
 import edu.isistan.dto.ProductoMaximaRecaudacion;
 import edu.isistan.entities.Producto;
 import edu.isistan.utils.CSVHelper;
+import edu.isistan.utils.DerbyHelper;
 
-public class DAOProducto extends DAO<Producto> {
+public class DAOProducto extends DerbyHelper implements DAO<Producto> {
     public DAOProducto(Connection conn){
         super(conn);
     }
@@ -36,7 +37,10 @@ public class DAOProducto extends DAO<Producto> {
             CSVHelper csvProductos = new CSVHelper("productos.csv");
             for (CSVRecord record : csvProductos.getData()) {
                 try{
-                    Producto p = new Producto(record);
+                    Integer idProducto = Integer.parseInt(record.get("idProducto"));
+                    String nombre = record.get("nombre");
+                    Float valor = Float.parseFloat(record.get("valor"));
+                    Producto p = new Producto(idProducto, nombre, valor);
                     this.insert(p);
                 } catch(NumberFormatException e){
                     System.out.println("Error en el formato de numero en el registro: " + record.toString());

@@ -1,7 +1,5 @@
 package edu.isistan.entities;
 
-import org.apache.commons.csv.CSVRecord;
-
 public class Producto {
     private int idProducto;
     private String nombre;
@@ -10,11 +8,6 @@ public class Producto {
         this.idProducto = id;
         this.nombre = nombre;
         this.valor = valor;
-    }
-    public Producto(CSVRecord record) {
-        this.idProducto = Integer.parseInt(record.get("idProducto"));
-        this.nombre = record.get("nombre");
-        this.valor = Float.parseFloat(record.get("valor"));
     }
     public int getIdProducto() {
         return idProducto;

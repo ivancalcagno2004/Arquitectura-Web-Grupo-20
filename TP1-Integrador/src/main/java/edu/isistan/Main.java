@@ -16,9 +16,9 @@ public class Main {
     private static DAOFacturaProducto daoFP;
     private static AbstractFactory derbyFactory = AbstractFactory.getDAOFactory(AbstractFactory.DERBY_JDBC);
     public static void main(String[] args) throws Exception {
-        //instanciarDaos();
-        //crearTablas();
-        //populated();
+        // instanciarDaos();
+        // crearTablas();
+        // populated();
         System.out.println("Producto con mayor recaudacion:");
         String header1 = String.format("| %-5s | %-30s | %-15s |", "id", "nombre", "totalRecaudado");
         System.out.println(header1);
