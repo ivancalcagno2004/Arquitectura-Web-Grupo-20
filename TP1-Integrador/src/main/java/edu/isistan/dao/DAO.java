@@ -27,7 +27,9 @@ public abstract class DAO<T> {
     protected void closePsAndCommit(Connection conn, PreparedStatement ps) {
         if (conn != null){
             try {
-                ps.close();
+                if (ps != null) {
+                    ps.close();
+                }
                 conn.commit();
             } catch (Exception e) {
                 e.printStackTrace();

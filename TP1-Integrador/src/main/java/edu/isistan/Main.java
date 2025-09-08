@@ -6,6 +6,7 @@ import edu.isistan.dao.DAOCliente;
 import edu.isistan.dao.DAOFactura;
 import edu.isistan.dao.DAOFacturaProducto;
 import edu.isistan.dao.DAOProducto;
+import edu.isistan.dto.ClienteFacturacion;
 import edu.isistan.factory.AbstractFactory;
 
 public class Main {
@@ -15,9 +16,22 @@ public class Main {
     private static DAOFacturaProducto daoFP;
     private static AbstractFactory derbyFactory = AbstractFactory.getDAOFactory(AbstractFactory.DERBY_JDBC);
     public static void main(String[] args) throws Exception {
-        instanciarDaos();
-        crearTablas();
-        populated();
+        //instanciarDaos();
+        //crearTablas();
+        //populated();
+        System.out.println("Producto con mayor recaudacion:");
+        String header1 = String.format("| %-5s | %-30s | %-15s |", "id", "nombre", "totalRecaudado");
+        System.out.println(header1);
+        System.out.println("-".repeat(header1.length()));
+        System.out.println(derbyFactory.getDaoProducto().selectProductoMayorRecaudacion());
+
+        System.out.println("\nClientes con mayor facturacion:");
+        String header2 = String.format("| %-5s | %-30s | %-15s |", "id", "nombre", "totalFacturado");
+        System.out.println(header2);
+        System.out.println("-".repeat(header2.length()));
+        for(ClienteFacturacion cf : derbyFactory.getDaoCliente().selectClientesMayorFacturacion()){
+            System.out.println(cf);
+        }
 
     }
 
@@ -41,6 +55,5 @@ public class Main {
         daoP.populated();
         daoFP.populated();
     }
-
 
 }

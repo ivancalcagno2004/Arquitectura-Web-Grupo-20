@@ -2,11 +2,13 @@ package edu.isistan.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.csv.CSVRecord;
 
+import edu.isistan.dto.ProductoMaximaRecaudacion;
 import edu.isistan.entities.Producto;
 import edu.isistan.utils.CSVHelper;
 
@@ -86,6 +88,32 @@ public class DAOProducto extends DAO<Producto> {
     public List<Producto> selectList() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'selectList'");
+    }
+
+    public ProductoMaximaRecaudacion selectProductoMayorRecaudacion() throws Exception{
+        PreparedStatement ps = null;
+        ProductoMaximaRecaudacion p = null;
+        try {
+            String select =
+                "SELECT p.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion " +
+                "FROM Producto p " +
+                "JOIN Factura_Producto fp ON fp.idProducto = p.idProducto " +
+                "GROUP BY p.idProducto, p.nombre " +
+                "ORDER BY recaudacion DESC " +
+                "FETCH FIRST 1 ROW ONLY";
+            ps = this.getConn().prepareStatement(select);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                p = new ProductoMaximaRecaudacion(rs.getInt(1), rs.getString(2), rs.getDouble(3));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closePsAndCommit(getConn(), ps);
+        }
+        return p;
     }
 
 }
