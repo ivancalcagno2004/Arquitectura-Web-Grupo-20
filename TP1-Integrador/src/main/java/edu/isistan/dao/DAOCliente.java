@@ -10,8 +10,9 @@ import org.apache.commons.csv.CSVRecord;
 import edu.isistan.dto.ClienteFacturacion;
 import edu.isistan.entities.Cliente;
 import edu.isistan.utils.CSVHelper;
+import edu.isistan.utils.DerbyHelper;
 
-public class DAOCliente extends DAO<Cliente> {
+public class DAOCliente extends DerbyHelper implements DAO<Cliente> {
 
     public DAOCliente(Connection conn){
         super(conn);
@@ -36,7 +37,10 @@ public class DAOCliente extends DAO<Cliente> {
             CSVHelper csvClientes = new CSVHelper("clientes.csv");
             for (CSVRecord record : csvClientes.getData()) {
                 try{
-                    Cliente c = new Cliente(record);
+                    Integer idCliente = Integer.parseInt(record.get("idCliente"));
+                    String nombre = record.get("nombre");
+                    String email = record.get("email");
+                    Cliente c = new Cliente(idCliente, nombre, email);
                     this.insert(c);
                 } catch(NumberFormatException e){
                     System.out.println("Error en el formato de numero en el registro: " + record.toString());

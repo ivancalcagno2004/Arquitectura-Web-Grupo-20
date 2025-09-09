@@ -9,8 +9,9 @@ import org.apache.commons.csv.CSVRecord;
 
 import edu.isistan.entities.Factura;
 import edu.isistan.utils.CSVHelper;
+import edu.isistan.utils.DerbyHelper;
 
-public class DAOFactura extends DAO<Factura> {
+public class DAOFactura extends DerbyHelper implements DAO<Factura> {
 
     public DAOFactura(Connection conn){
         super(conn);
@@ -35,7 +36,9 @@ public class DAOFactura extends DAO<Factura> {
             CSVHelper csvFacturas = new CSVHelper("facturas.csv");
             for (CSVRecord record : csvFacturas.getData()) {
                 try{
-                    Factura f = new Factura(record);
+                    Integer idFactura = Integer.parseInt(record.get("idFactura"));
+                    Integer idCliente = Integer.parseInt(record.get("idCliente"));
+                    Factura f = new Factura(idFactura, idCliente);
                     this.insert(f);
                 } catch(NumberFormatException e){
                     System.out.println("Error en el formato de numero en el registro: " + record.toString());

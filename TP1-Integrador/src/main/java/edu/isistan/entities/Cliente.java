@@ -1,7 +1,5 @@
 package edu.isistan.entities;
 
-import org.apache.commons.csv.CSVRecord;
-
 public class Cliente {
     private int idCliente;
     private String nombre;
@@ -10,11 +8,6 @@ public class Cliente {
         this.idCliente = id;
         this.nombre = nombre;
         this.email = email;
-    }
-    public Cliente(CSVRecord record) {
-        this.idCliente = Integer.parseInt(record.get("idCliente"));
-        this.nombre = record.get("nombre");
-        this.email = record.get("email");
     }
     public int getIdCliente() {
         return idCliente;

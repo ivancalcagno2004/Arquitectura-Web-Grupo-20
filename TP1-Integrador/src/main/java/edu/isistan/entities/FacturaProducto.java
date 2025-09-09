@@ -1,7 +1,5 @@
 package edu.isistan.entities;
 
-import org.apache.commons.csv.CSVRecord;
-
 public class FacturaProducto {
     private int idFactura;
     private int idProducto;
@@ -10,11 +8,6 @@ public class FacturaProducto {
         this.idFactura = idFactura;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
-    }
-    public FacturaProducto(CSVRecord record) {
-        this.idFactura = Integer.parseInt(record.get("idFactura"));
-        this.idProducto = Integer.parseInt(record.get("idProducto"));
-        this.cantidad = Integer.parseInt(record.get("cantidad"));
     }
     public int getIdFactura() {
         return idFactura;
