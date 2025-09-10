@@ -1,4 +1,4 @@
-# Grupo 26 – Arquitectura Web 2025
+# Grupo 20 – Arquitectura Web 2025
 
 
 
