@@ -8,6 +8,7 @@ import Integrador.dto.CarrerasConInscriptosDTO;
 import Integrador.dto.EstudianteDTO;
 import Integrador.dto.EstudianteEnCarreraXCiudadDTO;
 import Integrador.dto.InscripcionDTO;
+import Integrador.dto.ReporteCarreraAnualDTO;
 import Integrador.model.Carrera;
 import Integrador.model.Estudiante;
 import Integrador.model.Inscripcion;
@@ -153,6 +154,16 @@ public class Main {
         for(EstudianteEnCarreraXCiudadDTO e : ir.getEstudiantesEnCarreraXCiudad(carreraBuscada, ciudadBuscada)){
             System.out.println(String.format("| %-15s | %-12s | %-15s | %-15s | %-15s |",
                 e.getDni(), e.getNombre(), e.getApellido(), e.getCarrera(), e.getCiudad()));
+        };
+
+        // 3) Generar un reporte de las carreras, que para cada carrera incluya información de los inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y presentar los años de manera cronológica.
+        System.out.println("\nReporte anual de carreras:");
+        String header7 = String.format("| %-30s | %-10s | %-20s | %-20s |", "NOMBRE CARRERA", "AÑO", "CANTIDAD INSCRIPTOS", "CANTIDAD EGRESADOS");
+        System.out.println(header7);
+        System.out.println("-----------------------------------------------------------------------------------------------");
+        for(ReporteCarreraAnualDTO r : ir.getReporteCarreraAnual()){
+            System.out.println(String.format("| %-30s | %-10s | %-20s | %-20s |",
+                r.getNombreCarrera(), r.getAnio(), r.getInscriptos(), r.getEgresados()));
         };
     }
 }
