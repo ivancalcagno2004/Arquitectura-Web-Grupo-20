@@ -31,7 +31,7 @@ public class EstudianteController {
         try {
             EstudianteResponseDTO estudianteGuardado = this.estudianteService.save(e);
             return ResponseEntity.status(HttpStatus.CREATED).body(estudianteGuardado);
-        } catch (Exception ex) {
+        } catch (BadRequestException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
