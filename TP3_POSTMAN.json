@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "39610c9a-df3c-43cb-bf6b-7fad4c663772",
+		"name": "TP3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30377388"
+	},
+	"item": [
+		{
+			"name": "Dar de Alta Estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"dni\": 40373769,\r\n\t\"lu\": 25048,\r\n\t\"nombre\": \"Ulises\",\r\n\t\"apellido\": \"Palazzo\",\r\n\t\"genero\": \"Macho\",\r\n\t\"ciudad\": \"Rauch\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matricular Estudiante a una Carrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \t\"id_estudiante\": 40373769,\r\n  \t\"id_carrera\": 1,\r\n  \t\"inscripcion\": 2023,\r\n  \t\"antiguedad\": 2\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/inscripciones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"inscripciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiantes Ordenado ASC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes/ordenado?orderBy=ciudad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes",
+						"ordenado"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "ciudad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiantes Ordenado DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes/ordenado?orderBy=apellido&direction=DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes",
+						"ordenado"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "apellido"
+						},
+						{
+							"key": "direction",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiante por Legajo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes/lu/25048",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes",
+						"lu",
+						"25048"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiantes por Genero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes/genero/Male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes",
+						"genero",
+						"Male"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Carreras con cantidad de inscriptos DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/carreras/inscriptos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"carreras",
+						"inscriptos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Estudiantes de una Carrera (opcional filtrar por ciudad)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/estudiantes/carrera/1?ciudad=rauch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"estudiantes",
+						"carrera",
+						"1"
+					],
+					"query": [
+						{
+							"key": "ciudad",
+							"value": "rauch"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener reporte de Carreras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/inscripciones/reporte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"inscripciones",
+						"reporte"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
